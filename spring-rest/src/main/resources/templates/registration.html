@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Регистрация</title>
+    <link rel="shortcut icon" type="image/png" th:href="@{/img/favicon.png}"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Leckerli+One&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <script th:src="@{/js/uikit.js}"></script>
+</head>
+<body>
+<section class="container">
+    <div class="mx-auto border my-5 py-3 px-3 form">
+
+        <form action="#" th:action="@{/registration}" method="post" th:objcet="${userPostDto}">
+            <div class="form-group">
+                <label for="full_name">Имя</label>
+                <input class="form-control" id="full_name" type="text" th:field="*{userPostDto.fullName}">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input class="form-control" id="email" type="text" th:field="*{userPostDto.email}">
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input class="form-control" id="password" type="password" th:field="*{userPostDto.password}">
+            </div>
+<!--            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>-->
+            <input class="button" type="submit" value="Регистрация"/>
+        </form>
+    </div>
+</section>
+</body>
+</html>

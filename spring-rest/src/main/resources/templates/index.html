@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="shortcut icon" type="image/png" th:href="@{/img/favicon.png}"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Leckerli+One&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <script th:src="@{/js/uikit.js}"></script>
+</head>
+<body>
+
+<h2>Index</h2>
+
+    <div>
+        <h1>Spring login form and OAuth2 tutorial</h1>
+    </div>
+    <div>
+        <ul>
+            <li><a href="/registration">Регистрация</a></li>
+            <li><a href="/login">Вход</a></li>
+        </ul>
+    </div>
+
+
+<!--<table id="usersList">-->
+
+<!--</table>-->
+
+<!--<form action="#">-->
+<!--    <input id="user_full_name" placeholder="User full name">-->
+<!--    <input id="user_email" placeholder="User email">-->
+<!--    <input id="user_password" placeholder="User password">-->
+<!--    <input id="user_role" hidden value="USER">-->
+<!--    <button onclick="createUser()">Create user</button>-->
+<!--</form>-->
+
+<!--<input id="search_field">-->
+<!--<button onclick="searchByEmail()">Search by Email</button>-->
+<!--<script>-->
+<!--    function searchByEmail() {-->
+<!--        let email = document.getElementById("search_field").value;-->
+<!--        let xhttp = new XMLHttpRequest();-->
+<!--        xhttp.onreadystatechange = function () {-->
+<!--            if (this.readyState === 4 && this.status === 200) {-->
+<!--                let user = JSON.parse(this.responseText);-->
+<!--                let html = '<tr>\n' +-->
+<!--                    '        <th>User id</th>\n' +-->
+<!--                    '        <th>User full_name</th>\n' +-->
+<!--                    '        <th>User role</th>\n' +-->
+<!--                    '        <th>User email</th>\n' +-->
+<!--                    '        <th>Delete</th>\n' +-->
+<!--                    '    </tr>';-->
+<!--                html = html + '<tr><td>' + user.id + '</td>\n' +-->
+<!--                    '        <td>' + user.fullName + '</td>\n' +-->
+<!--                    '        <td>' + user.role + '</td>\n' +-->
+<!--                    '        <td>' + user.email + '</td>' +-->
+<!--                    '        <td><button onclick="deleteUser(' + user.id + ')">Delete</button></td></tr>';-->
+<!--                document.getElementById("usersList").innerHTML = html;-->
+<!--            }-->
+<!--        };-->
+<!--        xhttp.open("GET", "http://localhost:8080/findByEmail?email=" + email, true);-->
+<!--        xhttp.send();-->
+
+<!--    }-->
+
+<!--    function deleteUser(userId) {-->
+<!--        let xhttp = new XMLHttpRequest();-->
+<!--        xhttp.open("DELETE", "http://localhost:8080/users/" + userId, true);-->
+<!--        xhttp.send();-->
+<!--    }-->
+
+<!--    function createUser() {-->
+<!--        let userFullName = document.getElementById("user_full_name").value;-->
+<!--        let userPassword = document.getElementById("user_password").value;-->
+<!--        let userEmail = document.getElementById("user_email").value;-->
+<!--        let userRole = document.getElementById("user_role").value;-->
+
+<!--        let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance-->
+<!--        xmlhttp.open("POST", "http://localhost:8080/users");-->
+<!--        xmlhttp.setRequestHeader("Content-Type", "application/json");-->
+<!--        xmlhttp.send(JSON.stringify({fullName: userFullName, password: userPassword, email: userEmail, role: userRole}));-->
+
+<!--        loadUsers();-->
+<!--    }-->
+
+<!--    function loadUsers() {-->
+<!--        let xhttp = new XMLHttpRequest();-->
+<!--        xhttp.onreadystatechange = function () {-->
+<!--            if (this.readyState === 4 && this.status === 200) {-->
+<!--                let user = JSON.parse(this.responseText);-->
+<!--                let html = '<tr>\n' +-->
+<!--                    '        <th>User id</th>\n' +-->
+<!--                    '        <th>User full_name</th>\n' +-->
+<!--                    '        <th>User role</th>\n' +-->
+<!--                    '        <th>User email</th>\n' +-->
+<!--                    '        <th>Delete</th>\n' +-->
+<!--                    '    </tr>';-->
+<!--                for (let i = 0; i < user.length; i++) {-->
+<!--                    let user0 = user[i];-->
+<!--                    console.log(user0);-->
+<!--                    html = html + '<tr><td>' + user0.id + '</td>\n' +-->
+<!--                        '        <td>' + user0.fullName + '</td>\n' +-->
+<!--                        '        <td>' + user0.role + '</td>\n' +-->
+<!--                        '        <td>' + user0.email + '</td>' +-->
+<!--                        '        <td><button onclick="deleteUser(' + user0.id + ')">Delete</button></td></tr>';-->
+
+<!--                }-->
+<!--                document.getElementById("usersList").innerHTML = html;-->
+<!--            }-->
+<!--        };-->
+<!--        xhttp.open("GET", "http://localhost:8080/users", true);-->
+<!--        xhttp.send();-->
+<!--    }-->
+
+<!--    loadUsers();-->
+<!--</script>-->
+</body>
+</html>

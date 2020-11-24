@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Добавить рецепт</title>
+    <link rel="shortcut icon" type="image/png" th:href="@{/img/favicon.png}"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Leckerli+One&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script th:src="@{/js/add-remove.js}"></script>
+    <script th:src="@{/js/uikit.js}"></script>
+</head>
+<body>
+<nav class="uk-navbar-container uk-letter-spacing-small">
+    <div class="uk-container">
+        <div class="uk-position-z-index" data-uk-navbar>
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo" href="index.html">Книга рецептов</a>
+                <ul class="uk-navbar-nav uk-visible@m uk-margin-large-left">
+                    <li ><a href="index.html">Главная</a></li>
+                    <li class="uk-active"><a href="/recipes/random/{id}">Рецепт</a></li>
+                    <li ><a href="search.html">Поиск</a></li>
+                    <li ><a href="/send-message">Написать нам</a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <div>
+                    <a class="uk-navbar-toggle" data-uk-search-icon href="#"></a>
+                    <div class="uk-drop uk-background-default" data-uk-drop="mode: click; pos: left-center; offset: 0">
+                        <form class="uk-search uk-search-navbar uk-width-1-1">
+                            <input class="uk-search-input uk-text-demi-bold" type="search" placeholder="Search..." autofocus>
+                        </form>
+                    </div>
+                </div>
+                <ul class="uk-navbar-nav uk-visible@m">
+                    <li><span th:text="${userGetDto.fullName}"></span></li>
+                </ul>
+                <div class="uk-navbar-item">
+                    <div><a class="uk-button uk-button-primary" href="/logout">Выйти</a></div>
+                </div>
+                <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas" data-uk-toggle><span
+                        data-uk-navbar-toggle-icon></span></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="uk-container">
+    <div data-uk-grid>
+        <div class="uk-width-expand@s uk-flex-middle">
+            <div class="margin-tb-45px full-width">
+                <div class="padding-30px padding-bottom-30px background-white border-radius-10">
+                    <form action="#" method="post">
+                        <h4 class="padding-lr-30px padding-tb-20px background-white box-shadow border-radius-10">Основная информация</h4>
+                        <div class="form-group margin-bottom-20px">
+                            <label>Название рецепта</label>
+                            <input type="text" class="form-control form-control-sm" id="ListingTitle" placeholder="Яблочная сказка">
+                        </div>
+                        <div class="form-group margin-bottom-20px">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Категория</label>
+                                    <select class="form-control form-control-sm">
+                                        <option>Закуски</option>
+                                        <option>Завтрак</option>
+                                        <option>Десерты</option>
+                                        <option>Ужин</option>
+                                        <option>Основное блюдо</option>
+                                        <option>Салаты</option>
+                                        <option>Супы</option>
+                                        <option>Овощи</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group margin-bottom-20px">
+                                        <label>Количество порций</label>
+                                        <input type="text" class="form-control form-control-sm" id="ListingKeywords" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="margin-bottom-45px full-width">
+                            <h4 class="padding-lr-30px padding-tb-20px background-white box-shadow border-radius-10">Описание</h4>
+                            <div class="padding-30px padding-bottom-30px background-white border-radius-10">
+                                <div class="row">
+                                    <div class="col-md-6 margin-bottom-20px">
+                                        <label>Ингредиенты</label>
+                                        <div class="wrapper">
+                                            <div class="concrete">
+                                                <input type="text" class="form-control form-control-sm concrete_ingredient" id="ingredient_name_1" name="ingredient_name" onclick="selectIngredient(this)" placeholder="Название ингредиента"/>
+                                            </div>
+                                        </div>
+                                        <button class="add_fields uk-button uk-button-primary">Добавить ингредиент</button>
+                                    </div>
+                                </div>
+                                <div class="margin-bottom-20px">
+                                    <label>Инструкция</label>
+                                    <textarea class="form-control" placeholder="" id="exampleTextarea" rows="8"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="upload-add-button">
+                            <div class="upload-add-button-column">
+                                <input id="file-input" type="file" name="file"/>
+                            </div>
+                            <div class="upload-add-button-column">
+                                <a href="#" class="add_recipe uk-button">Добавить рецепт</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="uk-section uk-section-default">
+    <div class="uk-container uk-text-secondary uk-text-500">
+        <hr/>
+        <div class="uk-child-width-1-2@s" data-uk-grid>
+            <div>
+                <a href="#" class="uk-logo">Книга рецептов</a>
+            </div>
+        </div>
+        <div class="uk-child-width-1-2@s uk-child-width-1-4@m" data-uk-grid>
+            <div>
+                <ul class="uk-list uk-text-small">
+                    <li><a class="uk-link-text" href="#">Главная</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="uk-list uk-text-small">
+                    <li><a class="uk-link-text" href="#">Рецепт</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="uk-list uk-text-small">
+                    <li><a class="uk-link-text" href="/send-message">Написать нам</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="uk-list uk-text-small">
+                    <li><a class="uk-link-text" href="about-us.html">О компании</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="uk-margin-medium-top uk-text-small uk-text-muted">
+            <div>Все права защищены 2020 &#169;</div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
