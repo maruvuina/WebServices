@@ -17,8 +17,8 @@ import java.util.Properties;
 @Builder
 public class GoogleMail {
     private static final Logger logger = LogManager.getLogger(GoogleMail.class);
-    private static final String COMPANY_EMAIL = "mmf.inna@gmail.com";
-    private static final String COMPANY_PASSWORD = "8982zfyutk";
+    private static final String COMPANY_EMAIL = "";
+    private static final String COMPANY_PASSWORD = "";
     private String username;
     private String title;
     private String message;
